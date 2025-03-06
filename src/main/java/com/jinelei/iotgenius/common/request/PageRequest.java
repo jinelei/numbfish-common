@@ -7,7 +7,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 @SuppressWarnings({ "rawtypes", "unused" })
 @Schema(description = "分页请求对象")
-public class PageRequest<R, T extends BaseRequest<R>> implements Serializable {
+public class PageRequest<T> implements Serializable {
     @Schema(description = "分页页码")
     protected Integer page;
     @Schema(description = "分页大小")
