@@ -2,9 +2,12 @@ package com.jinelei.iotgenius.common.response;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 @SuppressWarnings("rawtypes")
+@ApiModel("基础响应对象")
 public class BaseResponse<T> implements Serializable {
     @ApiModelProperty("id")
     protected T id;

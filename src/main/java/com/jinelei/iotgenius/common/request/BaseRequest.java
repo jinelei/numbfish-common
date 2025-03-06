@@ -2,9 +2,12 @@ package com.jinelei.iotgenius.common.request;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 @SuppressWarnings("rawtypes")
+@ApiModel("基础请求对象")
 public class BaseRequest<T> implements Serializable {
     @ApiModelProperty("id")
     protected T id;

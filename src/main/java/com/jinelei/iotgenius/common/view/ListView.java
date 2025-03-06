@@ -1,8 +1,8 @@
 package com.jinelei.iotgenius.common.view;
 
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,12 +14,13 @@ import com.jinelei.iotgenius.common.utils.ThrowableStackTraceUtils;
  * @Date: 2024/3/12 22:25
  * @Version: 1.0.0
  */
-@SuppressWarnings("unchecked")
-@ApiResponse(description = "列表响应")
+@SuppressWarnings("rawtypes")
+@ApiModel("列表视图对象")
 public class ListView<T> extends BaseView<List<T>> {
     /**
      * 记录总数量
      */
+    @ApiModelProperty("记录总数")
     protected final Integer total;
 
     public ListView(Integer code, String message, List<T> data, Integer total) {
@@ -71,7 +72,7 @@ public class ListView<T> extends BaseView<List<T>> {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        ListView<T> other = (ListView<T>) obj;
+        ListView other = (ListView) obj;
         if (total == null) {
             if (other.total != null)
                 return false;

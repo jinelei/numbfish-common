@@ -1,7 +1,7 @@
 package com.jinelei.iotgenius.common.view;
 
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -14,16 +14,18 @@ import com.jinelei.iotgenius.common.utils.ThrowableStackTraceUtils;
  * @Date: 2024/3/12 22:25
  * @Version: 1.0.0
  */
-@SuppressWarnings({ "unused", "unchecked" })
-@ApiResponse(description = "分页响应")
+@SuppressWarnings("rawtypes")
+@ApiModel("分页视图对象")
 public class PageView<T> extends ListView<T> {
     /**
      * 当前页码
      */
+    @ApiModelProperty("分页页码")
     protected final Integer page;
     /**
      * 当前页大小
      */
+    @ApiModelProperty("分页大小")
     protected final Integer size;
 
     public PageView(Integer code, String message, List<T> data, Integer total, Integer page, Integer size) {
@@ -77,7 +79,7 @@ public class PageView<T> extends ListView<T> {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        PageView<T> other = (PageView<T>) obj;
+        PageView other = (PageView) obj;
         if (page == null) {
             if (other.page != null)
                 return false;

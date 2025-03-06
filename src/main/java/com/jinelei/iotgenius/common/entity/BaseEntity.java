@@ -3,9 +3,11 @@ package com.jinelei.iotgenius.common.entity;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 @SuppressWarnings("rawtypes")
+@ApiModel("基础实体对象")
 public class BaseEntity<T> implements Serializable {
     @ApiModelProperty("id")
     protected T id;

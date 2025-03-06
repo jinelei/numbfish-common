@@ -1,9 +1,8 @@
 package com.jinelei.iotgenius.common.view;
 
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.Optional;
 
@@ -15,11 +14,14 @@ import com.jinelei.iotgenius.common.utils.ThrowableStackTraceUtils;
  * @Date: 2023/7/21
  * @Version: 1.0.0
  */
-@SuppressWarnings("unchecked")
-@ApiResponse(description = "基础响应")
+@SuppressWarnings("rawtypes")
+@ApiModel("基础视图对象")
 public class BaseView<T> implements Serializable {
+    @ApiModelProperty("错误码")
     protected final Integer code;
+    @ApiModelProperty("错误信息")
     protected final String message;
+    @ApiModelProperty("数据")
     protected final T data;
 
     public BaseView(Integer code, String message, T data) {
@@ -87,7 +89,7 @@ public class BaseView<T> implements Serializable {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        BaseView<T> other = (BaseView<T>) obj;
+        BaseView other = (BaseView) obj;
         if (code == null) {
             if (other.code != null)
                 return false;
