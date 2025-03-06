@@ -4,9 +4,10 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
 
-public class BaseEntity implements Serializable {
+public class BaseEntity<T> implements Serializable {
+    @ApiModelProperty("id")
+    protected T id;
     @ApiModelProperty("权限备注")
     protected String remark;
     @ApiModelProperty("创建人")
@@ -21,6 +22,14 @@ public class BaseEntity implements Serializable {
     protected String deleter;
     @ApiModelProperty("删除时间")
     protected LocalDateTime deleteTime;
+
+    public T getId() {
+        return id;
+    }
+
+    public void setId(T id) {
+        this.id = id;
+    }
 
     public String getRemark() {
         return remark;
@@ -80,37 +89,77 @@ public class BaseEntity implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(remark, creator, createTime, updater, updateTime, deleter, deleteTime);
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        result = prime * result + ((remark == null) ? 0 : remark.hashCode());
+        result = prime * result + ((creator == null) ? 0 : creator.hashCode());
+        result = prime * result + ((createTime == null) ? 0 : createTime.hashCode());
+        result = prime * result + ((updater == null) ? 0 : updater.hashCode());
+        result = prime * result + ((updateTime == null) ? 0 : updateTime.hashCode());
+        result = prime * result + ((deleter == null) ? 0 : deleter.hashCode());
+        result = prime * result + ((deleteTime == null) ? 0 : deleteTime.hashCode());
+        return result;
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public boolean equals(Object obj) {
-        if (this == obj) {
+        if (this == obj)
             return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
+        if (obj == null)
             return false;
-        }
-        BaseEntity other = (BaseEntity) obj;
-        return Objects.equals(remark, other.remark) &&
-                Objects.equals(creator, other.creator) &&
-                Objects.equals(createTime, other.createTime) &&
-                Objects.equals(updater, other.updater) &&
-                Objects.equals(updateTime, other.updateTime) &&
-                Objects.equals(deleter, other.deleter) &&
-                Objects.equals(deleteTime, other.deleteTime);
+        if (getClass() != obj.getClass())
+            return false;
+        BaseEntity<T> other = (BaseEntity<T>) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        if (remark == null) {
+            if (other.remark != null)
+                return false;
+        } else if (!remark.equals(other.remark))
+            return false;
+        if (creator == null) {
+            if (other.creator != null)
+                return false;
+        } else if (!creator.equals(other.creator))
+            return false;
+        if (createTime == null) {
+            if (other.createTime != null)
+                return false;
+        } else if (!createTime.equals(other.createTime))
+            return false;
+        if (updater == null) {
+            if (other.updater != null)
+                return false;
+        } else if (!updater.equals(other.updater))
+            return false;
+        if (updateTime == null) {
+            if (other.updateTime != null)
+                return false;
+        } else if (!updateTime.equals(other.updateTime))
+            return false;
+        if (deleter == null) {
+            if (other.deleter != null)
+                return false;
+        } else if (!deleter.equals(other.deleter))
+            return false;
+        if (deleteTime == null) {
+            if (other.deleteTime != null)
+                return false;
+        } else if (!deleteTime.equals(other.deleteTime))
+            return false;
+        return true;
     }
 
     @Override
     public String toString() {
-        return "BaseEntity{" +
-                "remark='" + remark + '\'' +
-                ", creator='" + creator + '\'' +
-                ", createTime=" + createTime +
-                ", updater='" + updater + '\'' +
-                ", updateTime=" + updateTime +
-                ", deleter='" + deleter + '\'' +
-                ", deleteTime=" + deleteTime +
-                '}';
+        return "BaseEntity [id=" + id + ", remark=" + remark + ", creator=" + creator + ", createTime=" + createTime
+                + ", updater=" + updater + ", updateTime=" + updateTime + ", deleter=" + deleter + ", deleteTime="
+                + deleteTime + "]";
     }
+
 }
