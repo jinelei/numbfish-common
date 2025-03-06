@@ -1,6 +1,6 @@
 package com.jinelei.iotgenius.common.exception;
 
-import io.swagger.annotations.ApiModel;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * @Author: jinelei
@@ -8,7 +8,7 @@ import io.swagger.annotations.ApiModel;
  * @Date: 2023/7/12
  * @Version: 1.0.0
  */
-@ApiModel("数据库异常")
+@Schema(description = "数据库异常")
 public class DatabaseException extends BaseException {
   private static final int code = 109000;
 

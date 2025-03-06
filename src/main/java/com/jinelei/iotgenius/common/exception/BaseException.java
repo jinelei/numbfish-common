@@ -2,7 +2,7 @@ package com.jinelei.iotgenius.common.exception;
 
 import java.util.Objects;
 
-import io.swagger.annotations.ApiModel;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * @Author: jinelei
@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModel;
  * @Date: 2023/7/12
  * @Version: 1.0.0
  */
-@ApiModel("基础异常")
+@Schema(description = "基础异常")
 public class BaseException extends RuntimeException {
     protected final int code;
     protected final String message;

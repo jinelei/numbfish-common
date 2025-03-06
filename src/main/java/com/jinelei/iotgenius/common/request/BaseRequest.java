@@ -3,29 +3,28 @@ package com.jinelei.iotgenius.common.request;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 @SuppressWarnings("rawtypes")
-@ApiModel("基础请求对象")
+@Schema(description = "基础请求对象")
 public class BaseRequest<T> implements Serializable {
-    @ApiModelProperty("id")
+    @Schema(description = "id")
     protected T id;
-    @ApiModelProperty("权限备注")
+    @Schema(description = "权限备注")
     protected String remark;
-    @ApiModelProperty("是否启用")
+    @Schema(description = "是否启用")
     protected String enabled;
-    @ApiModelProperty("创建人")
+    @Schema(description = "创建人")
     protected String createdUserId;
-    @ApiModelProperty("创建时间")
+    @Schema(description = "创建时间")
     protected LocalDateTime createdTime;
-    @ApiModelProperty("更新人")
+    @Schema(description = "更新人")
     protected String updatedUserId;
-    @ApiModelProperty("更新时间")
+    @Schema(description = "更新时间")
     protected LocalDateTime updatedTime;
-    @ApiModelProperty("删除人")
+    @Schema(description = "删除人")
     protected String deletedUserId;
-    @ApiModelProperty("删除时间")
+    @Schema(description = "删除时间")
     protected LocalDateTime deletedTime;
 
     public T getId() {
@@ -47,6 +46,7 @@ public class BaseRequest<T> implements Serializable {
     public String getCreatedUserId() {
         return createdUserId;
     }
+
     public String getEnabled() {
         return enabled;
     }
@@ -54,6 +54,7 @@ public class BaseRequest<T> implements Serializable {
     public void setEnabled(String enabled) {
         this.enabled = enabled;
     }
+
     public void setCreatedUserId(String createdUserId) {
         this.createdUserId = createdUserId;
     }

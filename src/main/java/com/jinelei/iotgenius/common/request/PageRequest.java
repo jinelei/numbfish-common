@@ -3,16 +3,17 @@ package com.jinelei.iotgenius.common.request;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 @SuppressWarnings({ "rawtypes", "unused" })
-@ApiModel("分页请求对象")
-public class PageRequest<T> extends BaseRequest<T> implements Serializable {
-    @ApiModelProperty("分页页码")
+@Schema(description = "分页请求对象")
+public class PageRequest<R, T extends BaseRequest<R>> implements Serializable {
+    @Schema(description = "分页页码")
     protected Integer page;
-    @ApiModelProperty("分页大小")
+    @Schema(description = "分页大小")
     protected Integer size;
+    @Schema(description = "查询参数")
+    protected T params;
 
     public Integer getPage() {
         return page;
@@ -30,12 +31,21 @@ public class PageRequest<T> extends BaseRequest<T> implements Serializable {
         this.size = size;
     }
 
+    public T getParams() {
+        return params;
+    }
+
+    public void setParams(T params) {
+        this.params = params;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
-        int result = super.hashCode();
+        int result = 1;
         result = prime * result + ((page == null) ? 0 : page.hashCode());
         result = prime * result + ((size == null) ? 0 : size.hashCode());
+        result = prime * result + ((params == null) ? 0 : params.hashCode());
         return result;
     }
 
@@ -43,7 +53,7 @@ public class PageRequest<T> extends BaseRequest<T> implements Serializable {
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
-        if (!super.equals(obj))
+        if (obj == null)
             return false;
         if (getClass() != obj.getClass())
             return false;
@@ -58,12 +68,17 @@ public class PageRequest<T> extends BaseRequest<T> implements Serializable {
                 return false;
         } else if (!size.equals(other.size))
             return false;
+        if (params == null) {
+            if (other.params != null)
+                return false;
+        } else if (!params.equals(other.params))
+            return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return "PageRequest [page=" + page + ", size=" + size + "]";
+        return "PageRequest [page=" + page + ", size=" + size + ", params=" + params + "]";
     }
 
 }

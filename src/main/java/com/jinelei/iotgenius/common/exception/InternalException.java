@@ -1,6 +1,6 @@
 package com.jinelei.iotgenius.common.exception;
 
-import io.swagger.annotations.ApiModel;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * @Author: jinelei
@@ -8,7 +8,7 @@ import io.swagger.annotations.ApiModel;
  * @Date: 2023/7/12
  * @Version: 1.0.0
  */
-@ApiModel("内部错误")
+@Schema(description = "内部错误")
 public class InternalException extends BaseException {
   private static final int code = 103000;
 

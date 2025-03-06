@@ -1,7 +1,6 @@
 package com.jinelei.iotgenius.common.view;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,12 +14,12 @@ import com.jinelei.iotgenius.common.utils.ThrowableStackTraceUtils;
  * @Version: 1.0.0
  */
 @SuppressWarnings("rawtypes")
-@ApiModel("列表视图对象")
+@Schema(description = "列表视图对象")
 public class ListView<T> extends BaseView<List<T>> {
     /**
      * 记录总数量
      */
-    @ApiModelProperty("记录总数")
+    @Schema(description = "记录总数")
     protected final Integer total;
 
     public ListView(Integer code, String message, List<T> data, Integer total) {

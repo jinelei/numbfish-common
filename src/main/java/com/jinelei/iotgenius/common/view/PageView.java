@@ -1,7 +1,6 @@
 package com.jinelei.iotgenius.common.view;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -15,17 +14,17 @@ import com.jinelei.iotgenius.common.utils.ThrowableStackTraceUtils;
  * @Version: 1.0.0
  */
 @SuppressWarnings("rawtypes")
-@ApiModel("分页视图对象")
+@Schema(description = "分页视图对象")
 public class PageView<T> extends ListView<T> {
     /**
      * 当前页码
      */
-    @ApiModelProperty("分页页码")
+    @Schema(description = "分页页码")
     protected final Integer page;
     /**
      * 当前页大小
      */
-    @ApiModelProperty("分页大小")
+    @Schema(description = "分页大小")
     protected final Integer size;
 
     public PageView(Integer code, String message, List<T> data, Integer total, Integer page, Integer size) {

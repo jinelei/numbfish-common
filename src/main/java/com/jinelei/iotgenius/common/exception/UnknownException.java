@@ -1,6 +1,6 @@
 package com.jinelei.iotgenius.common.exception;
 
-import io.swagger.annotations.ApiModel;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * @Author: jinelei
@@ -8,7 +8,7 @@ import io.swagger.annotations.ApiModel;
  * @Date: 2023/7/12
  * @Version: 1.0.0
  */
-@ApiModel("未知异常")
+@Schema(description = "未知异常")
 public class UnknownException extends BaseException {
   private static final int code = 109000;
 

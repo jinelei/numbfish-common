@@ -1,7 +1,6 @@
 package com.jinelei.iotgenius.common.view;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.Serializable;
 import java.util.Optional;
@@ -15,13 +14,13 @@ import com.jinelei.iotgenius.common.utils.ThrowableStackTraceUtils;
  * @Version: 1.0.0
  */
 @SuppressWarnings("rawtypes")
-@ApiModel("基础视图对象")
+@Schema(description = "基础视图对象")
 public class BaseView<T> implements Serializable {
-    @ApiModelProperty("错误码")
+    @Schema(description = "错误码")
     protected final Integer code;
-    @ApiModelProperty("错误信息")
+    @Schema(description = "错误信息")
     protected final String message;
-    @ApiModelProperty("数据")
+    @Schema(description = "数据")
     protected final T data;
 
     public BaseView(Integer code, String message, T data) {
