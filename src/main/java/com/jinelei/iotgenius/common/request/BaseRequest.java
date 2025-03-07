@@ -13,7 +13,7 @@ public class BaseRequest<T> implements Serializable {
     @Schema(description = "权限备注")
     protected String remark;
     @Schema(description = "是否启用")
-    protected String enabled;
+    protected Boolean enabled;
     @Schema(description = "创建人")
     protected String createdUserId;
     @Schema(description = "创建时间")
@@ -47,11 +47,11 @@ public class BaseRequest<T> implements Serializable {
         return createdUserId;
     }
 
-    public String getEnabled() {
+    public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(String enabled) {
+    public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
 
