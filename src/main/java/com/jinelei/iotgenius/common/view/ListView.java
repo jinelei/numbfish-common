@@ -51,6 +51,10 @@ public class ListView<T> extends BaseView<List<T>> {
         this(code, message, null, 0);
     }
 
+    public ListView(String message) {
+        this(null, message, null, 0);
+    }
+
     public Integer getTotal() {
         return total;
     }

@@ -45,12 +45,24 @@ public class PageView<T> extends ListView<T> {
         this(null, null, data, Optional.of(data).map(List::size).orElse(0), page, size);
     }
 
+    public PageView(String message, List<T> data, Integer page, Integer size) {
+        this(null, message, data, Optional.of(data).map(List::size).orElse(0), page, size);
+    }
+
     public PageView(Integer code, Throwable e) {
         this(code, ThrowableStackTraceUtils.getStackTraceAsString(e), null, 0, 0, 0);
     }
 
     public PageView(Throwable e) {
         this(500, ThrowableStackTraceUtils.getStackTraceAsString(e), null, 0, 0, 0);
+    }
+
+    public PageView(String message) {
+        this(null, message, null, 0, 0, 0);
+    }
+
+    public PageView(String message, Integer page, Integer size) {
+        this(null, message, null, 0, page, size);
     }
 
     public Integer getPage() {
