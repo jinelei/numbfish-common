@@ -19,12 +19,12 @@ public class PageView<T> extends ListView<T> {
      * 当前页码
      */
     @Schema(description = "分页页码")
-    protected final Integer page;
+    protected Integer page;
     /**
      * 当前页大小
      */
     @Schema(description = "分页大小")
-    protected final Integer size;
+    protected Integer size;
 
     public PageView(Integer code, String message, List<T> data, Integer total, Integer page, Integer size) {
         super(Optional.ofNullable(code).orElse(200),
@@ -42,6 +42,14 @@ public class PageView<T> extends ListView<T> {
 
     public PageView(List<T> data, Integer page, Integer size) {
         this(null, null, data, Optional.of(data).map(List::size).orElse(0), page, size);
+    }
+
+    public PageView(List<T> data, Integer total, Integer page, Integer size) {
+        this(null, null, data, total, page, size);
+    }
+
+    public PageView(List<T> data, Long total, Long page, Long size) {
+        this(null, null, data, Optional.ofNullable(total).map(Long::intValue).orElse(0), Optional.ofNullable(page).map(Long::intValue).orElse(0), Optional.ofNullable(size).map(Long::intValue).orElse(0));
     }
 
     public PageView(String message, List<T> data, Integer page, Integer size) {
@@ -68,8 +76,16 @@ public class PageView<T> extends ListView<T> {
         return page;
     }
 
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
     public Integer getSize() {
         return size;
+    }
+
+    public void setSize(Integer size) {
+        this.size = size;
     }
 
     @Override
