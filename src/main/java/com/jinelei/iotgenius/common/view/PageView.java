@@ -1,11 +1,10 @@
 package com.jinelei.iotgenius.common.view;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import com.jinelei.iotgenius.common.utils.ThrowableStackTraceUtils;
 
 /**
  * @Author: jinelei
@@ -13,7 +12,7 @@ import com.jinelei.iotgenius.common.utils.ThrowableStackTraceUtils;
  * @Date: 2024/3/12 22:25
  * @Version: 1.0.0
  */
-@SuppressWarnings("rawtypes")
+@SuppressWarnings({"rawtypes", "unused"})
 @Schema(description = "分页视图对象")
 public class PageView<T> extends ListView<T> {
     /**
@@ -50,11 +49,11 @@ public class PageView<T> extends ListView<T> {
     }
 
     public PageView(Integer code, Throwable e) {
-        this(code, ThrowableStackTraceUtils.getStackTraceAsString(e), null, 0, 0, 0);
+        this(code, e.getMessage(), null, 0, 0, 0);
     }
 
     public PageView(Throwable e) {
-        this(500, ThrowableStackTraceUtils.getStackTraceAsString(e), null, 0, 0, 0);
+        this(500, e.getMessage(), null, 0, 0, 0);
     }
 
     public PageView(String message) {
