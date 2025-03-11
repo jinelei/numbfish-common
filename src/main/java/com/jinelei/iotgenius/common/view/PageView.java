@@ -1,11 +1,10 @@
 package com.jinelei.iotgenius.common.view;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import com.jinelei.iotgenius.common.utils.ThrowableStackTraceUtils;
 
 /**
  * @Author: jinelei
@@ -13,19 +12,19 @@ import com.jinelei.iotgenius.common.utils.ThrowableStackTraceUtils;
  * @Date: 2024/3/12 22:25
  * @Version: 1.0.0
  */
-@SuppressWarnings("rawtypes")
+@SuppressWarnings({"rawtypes", "unused"})
 @Schema(description = "分页视图对象")
 public class PageView<T> extends ListView<T> {
     /**
      * 当前页码
      */
     @Schema(description = "分页页码")
-    protected final Integer page;
+    protected Integer page;
     /**
      * 当前页大小
      */
     @Schema(description = "分页大小")
-    protected final Integer size;
+    protected Integer size;
 
     public PageView(Integer code, String message, List<T> data, Integer total, Integer page, Integer size) {
         super(Optional.ofNullable(code).orElse(200),
@@ -45,16 +44,24 @@ public class PageView<T> extends ListView<T> {
         this(null, null, data, Optional.of(data).map(List::size).orElse(0), page, size);
     }
 
+    public PageView(List<T> data, Integer total, Integer page, Integer size) {
+        this(null, null, data, total, page, size);
+    }
+
+    public PageView(List<T> data, Long total, Long page, Long size) {
+        this(null, null, data, Optional.ofNullable(total).map(Long::intValue).orElse(0), Optional.ofNullable(page).map(Long::intValue).orElse(0), Optional.ofNullable(size).map(Long::intValue).orElse(0));
+    }
+
     public PageView(String message, List<T> data, Integer page, Integer size) {
         this(null, message, data, Optional.of(data).map(List::size).orElse(0), page, size);
     }
 
     public PageView(Integer code, Throwable e) {
-        this(code, ThrowableStackTraceUtils.getStackTraceAsString(e), null, 0, 0, 0);
+        this(code, e.getMessage(), null, 0, 0, 0);
     }
 
     public PageView(Throwable e) {
-        this(500, ThrowableStackTraceUtils.getStackTraceAsString(e), null, 0, 0, 0);
+        this(500, e.getMessage(), null, 0, 0, 0);
     }
 
     public PageView(String message) {
@@ -69,8 +76,16 @@ public class PageView<T> extends ListView<T> {
         return page;
     }
 
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
     public Integer getSize() {
         return size;
+    }
+
+    public void setSize(Integer size) {
+        this.size = size;
     }
 
     @Override

@@ -5,15 +5,13 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serializable;
 import java.util.Optional;
 
-import com.jinelei.iotgenius.common.utils.ThrowableStackTraceUtils;
-
 /**
  * @Author: jinelei
  * @Description:
  * @Date: 2023/7/21
  * @Version: 1.0.0
  */
-@SuppressWarnings("rawtypes")
+@SuppressWarnings({"rawtypes", "unused"})
 @Schema(description = "基础视图对象")
 public class BaseView<T> implements Serializable {
     @Schema(description = "错误码")
@@ -46,11 +44,11 @@ public class BaseView<T> implements Serializable {
     }
 
     public BaseView(Throwable e) {
-        this(500, ThrowableStackTraceUtils.getStackTraceAsString(e), null);
+        this(500, e.getMessage(), null);
     }
 
     public BaseView(Integer code, Throwable e) {
-        this(code, ThrowableStackTraceUtils.getStackTraceAsString(e), null);
+        this(code, e.getMessage(), null);
     }
 
     public Integer getCode() {

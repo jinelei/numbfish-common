@@ -5,15 +5,13 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
 import java.util.Optional;
 
-import com.jinelei.iotgenius.common.utils.ThrowableStackTraceUtils;
-
 /**
  * @Author: jinelei
  * @Description:
  * @Date: 2024/3/12 22:25
  * @Version: 1.0.0
  */
-@SuppressWarnings("rawtypes")
+@SuppressWarnings({"rawtypes", "unused"})
 @Schema(description = "列表视图对象")
 public class ListView<T> extends BaseView<List<T>> {
     /**
@@ -40,11 +38,11 @@ public class ListView<T> extends BaseView<List<T>> {
     }
 
     public ListView(Integer code, Throwable e) {
-        this(code, ThrowableStackTraceUtils.getStackTraceAsString(e), null, 0);
+        this(code, e.getMessage(), null, 0);
     }
 
     public ListView(Throwable e) {
-        this(500, ThrowableStackTraceUtils.getStackTraceAsString(e), null, 0);
+        this(500, e.getMessage(), null, 0);
     }
 
     public ListView(Integer code, String message) {
