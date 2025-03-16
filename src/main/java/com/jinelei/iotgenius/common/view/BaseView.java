@@ -11,7 +11,7 @@ import java.util.Optional;
  * @Date: 2023/7/21
  * @Version: 1.0.0
  */
-@SuppressWarnings({"rawtypes", "unused"})
+@SuppressWarnings({ "rawtypes", "unused" })
 @Schema(description = "基础视图对象")
 public class BaseView<T> implements Serializable {
     @Schema(description = "错误码")
@@ -44,11 +44,11 @@ public class BaseView<T> implements Serializable {
     }
 
     public BaseView(Throwable e) {
-        this(500, e.getMessage(), null);
+        this(500, Optional.ofNullable(e).map(i -> i.getMessage()).orElse(e.getClass().getName()), null);
     }
 
     public BaseView(Integer code, Throwable e) {
-        this(code, e.getMessage(), null);
+        this(code, Optional.ofNullable(e).map(i -> i.getMessage()).orElse(e.getClass().getName()), null);
     }
 
     public Integer getCode() {
