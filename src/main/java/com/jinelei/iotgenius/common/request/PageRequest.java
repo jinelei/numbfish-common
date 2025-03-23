@@ -5,13 +5,13 @@ import java.time.LocalDateTime;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-@SuppressWarnings({ "rawtypes", "unused" })
+@SuppressWarnings({"rawtypes", "unused"})
 @Schema(description = "分页请求对象")
 public class PageRequest<T> implements Serializable {
     @Schema(description = "分页页码")
-    protected Integer page;
+    protected Integer page = 1;
     @Schema(description = "分页大小")
-    protected Integer size;
+    protected Integer size = 10;
     @Schema(description = "查询参数")
     protected T params;
 
