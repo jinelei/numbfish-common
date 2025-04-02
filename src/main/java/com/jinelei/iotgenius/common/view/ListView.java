@@ -11,7 +11,7 @@ import java.util.Optional;
  * @Date: 2024/3/12 22:25
  * @Version: 1.0.0
  */
-@SuppressWarnings({"rawtypes", "unused"})
+@SuppressWarnings({"rawtypes" })
 @Schema(description = "列表视图对象")
 public class ListView<T> extends BaseView<List<T>> {
     /**

@@ -12,7 +12,7 @@ import java.util.Optional;
  * @Date: 2024/3/12 22:25
  * @Version: 1.0.0
  */
-@SuppressWarnings({"rawtypes", "unused"})
+@SuppressWarnings({"rawtypes" })
 @Schema(description = "分页视图对象")
 public class PageView<T> extends ListView<T> {
     /**

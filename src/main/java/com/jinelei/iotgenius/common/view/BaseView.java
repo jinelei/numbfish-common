@@ -11,7 +11,7 @@ import java.util.Optional;
  * @Date: 2023/7/21
  * @Version: 1.0.0
  */
-@SuppressWarnings({ "rawtypes", "unused" })
+@SuppressWarnings({ "rawtypes" })
 @Schema(description = "基础视图对象")
 public class BaseView<T> implements Serializable {
     @Schema(description = "错误码")
