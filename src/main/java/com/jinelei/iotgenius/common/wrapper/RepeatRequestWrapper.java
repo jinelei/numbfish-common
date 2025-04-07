@@ -11,10 +11,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 @SuppressWarnings("unused")
-public class RepeatHttpServletRequestWrapper extends HttpServletRequestWrapper {
+public class RepeatRequestWrapper extends HttpServletRequestWrapper {
     private final byte[] body;
 
-    public RepeatHttpServletRequestWrapper(HttpServletRequest request) throws IOException {
+    public RepeatRequestWrapper(HttpServletRequest request) throws IOException {
         super(request);
         body = request.getInputStream().readAllBytes();
     }
