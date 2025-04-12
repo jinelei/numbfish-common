@@ -1,6 +1,6 @@
-package com.jinelei.iotgenius.common.filter;
+package com.jinelei.numbfish.common.filter;
 
-import com.jinelei.iotgenius.common.wrapper.RepeatRequestWrapper;
+import com.jinelei.numbfish.common.wrapper.RepeatRequestWrapper;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 

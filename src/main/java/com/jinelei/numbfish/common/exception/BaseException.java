@@ -1,4 +1,4 @@
-package com.jinelei.iotgenius.common.exception;
+package com.jinelei.numbfish.common.exception;
 
 import java.util.Objects;
 

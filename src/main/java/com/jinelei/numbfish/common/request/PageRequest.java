@@ -1,7 +1,6 @@
-package com.jinelei.iotgenius.common.request;
+package com.jinelei.numbfish.common.request;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 

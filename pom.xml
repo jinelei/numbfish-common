@@ -3,11 +3,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.jinelei.iotgenius</groupId>
+    <groupId>com.jinelei.numbfish</groupId>
     <artifactId>common</artifactId>
     <version>0.0.1</version>
-    <description>iotgenius common module</description>
-    <url>https://github.com/jinelei/iotgenius-common</url>
+    <description>numbfish common module</description>
+    <url>https://github.com/jinelei/numbfish-common</url>
 
     <licenses>
         <license>
@@ -29,10 +29,10 @@
     </developers>
 
     <scm>
-        <connection>https://github.com/jinelei/iotgenius-common.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:jinelei/iotgenius-common.git
+        <connection>https://github.com/jinelei/numbfish-common.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:jinelei/numbfish-common.git
         </developerConnection>
-        <url>https://github.com/jinelei/iotgenius-common</url>
+        <url>https://github.com/jinelei/numbfish-common</url>
     </scm>
 
     <properties>

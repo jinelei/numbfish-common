@@ -1,4 +1,4 @@
-package com.jinelei.iotgenius.common.request;
+package com.jinelei.numbfish.common.entity;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -6,8 +6,8 @@ import java.time.LocalDateTime;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 @SuppressWarnings("rawtypes")
-@Schema(description = "基础请求对象")
-public class BaseRequest<T> implements Serializable {
+@Schema(description = "基础实体对象")
+public class BaseEntity<T> implements Serializable {
     @Schema(description = "id")
     protected T id;
     @Schema(description = "权限备注")
@@ -43,16 +43,16 @@ public class BaseRequest<T> implements Serializable {
         this.remark = remark;
     }
 
-    public String getCreatedUserId() {
-        return createdUserId;
-    }
-
     public Boolean getEnabled() {
         return enabled;
     }
 
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public String getCreatedUserId() {
+        return createdUserId;
     }
 
     public void setCreatedUserId(String createdUserId) {
@@ -123,7 +123,7 @@ public class BaseRequest<T> implements Serializable {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        BaseRequest other = (BaseRequest) obj;
+        BaseEntity other = (BaseEntity) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
@@ -174,7 +174,7 @@ public class BaseRequest<T> implements Serializable {
 
     @Override
     public String toString() {
-        return "BaseRequest [id=" + id + ", remark=" + remark + ", enabled=" + enabled + ", createdUserId="
+        return "BaseEntity [id=" + id + ", remark=" + remark + ", enabled=" + enabled + ", createdUserId="
                 + createdUserId + ", createdTime=" + createdTime + ", updatedUserId=" + updatedUserId + ", updatedTime="
                 + updatedTime + ", deletedUserId=" + deletedUserId + ", deletedTime=" + deletedTime + "]";
     }

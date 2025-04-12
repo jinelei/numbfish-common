@@ -1,11 +1,11 @@
-package com.jinelei.iotgenius.common.helper;
+package com.jinelei.numbfish.common.helper;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.concurrent.atomic.AtomicLong;
 
-import com.jinelei.iotgenius.common.exception.InternalException;
+import com.jinelei.numbfish.common.exception.InternalException;
 
 /**
  * @Author: jinelei

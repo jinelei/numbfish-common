@@ -1,4 +1,4 @@
-package com.jinelei.iotgenius.common.response;
+package com.jinelei.numbfish.common.response;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 

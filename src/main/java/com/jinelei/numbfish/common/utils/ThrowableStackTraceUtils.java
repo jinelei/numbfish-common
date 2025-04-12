@@ -1,4 +1,4 @@
-package com.jinelei.iotgenius.common.utils;
+package com.jinelei.numbfish.common.utils;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

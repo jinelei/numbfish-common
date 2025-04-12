@@ -1,4 +1,4 @@
-package com.jinelei.iotgenius.common.entity;
+package com.jinelei.numbfish.common.response;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -6,8 +6,8 @@ import java.time.LocalDateTime;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 @SuppressWarnings("rawtypes")
-@Schema(description = "基础实体对象")
-public class BaseEntity<T> implements Serializable {
+@Schema(description = "基础响应对象")
+public class BaseResponse<T> implements Serializable {
     @Schema(description = "id")
     protected T id;
     @Schema(description = "权限备注")
@@ -26,79 +26,60 @@ public class BaseEntity<T> implements Serializable {
     protected String deletedUserId;
     @Schema(description = "删除时间")
     protected LocalDateTime deletedTime;
-
     public T getId() {
         return id;
     }
-
     public void setId(T id) {
         this.id = id;
     }
-
     public String getRemark() {
         return remark;
     }
-
     public void setRemark(String remark) {
         this.remark = remark;
     }
-
     public Boolean getEnabled() {
         return enabled;
     }
-
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
-
     public String getCreatedUserId() {
         return createdUserId;
     }
-
     public void setCreatedUserId(String createdUserId) {
         this.createdUserId = createdUserId;
     }
-
     public LocalDateTime getCreatedTime() {
         return createdTime;
     }
-
     public void setCreatedTime(LocalDateTime createdTime) {
         this.createdTime = createdTime;
     }
-
     public String getUpdatedUserId() {
         return updatedUserId;
     }
-
     public void setUpdatedUserId(String updatedUserId) {
         this.updatedUserId = updatedUserId;
     }
-
     public LocalDateTime getUpdatedTime() {
         return updatedTime;
     }
-
     public void setUpdatedTime(LocalDateTime updatedTime) {
         this.updatedTime = updatedTime;
     }
-
     public String getDeletedUserId() {
         return deletedUserId;
     }
-
     public void setDeletedUserId(String deletedUserId) {
         this.deletedUserId = deletedUserId;
     }
-
     public LocalDateTime getDeletedTime() {
         return deletedTime;
     }
-
     public void setDeletedTime(LocalDateTime deletedTime) {
         this.deletedTime = deletedTime;
     }
-
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -114,7 +95,6 @@ public class BaseEntity<T> implements Serializable {
         result = prime * result + ((deletedTime == null) ? 0 : deletedTime.hashCode());
         return result;
     }
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -123,7 +103,7 @@ public class BaseEntity<T> implements Serializable {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        BaseEntity other = (BaseEntity) obj;
+        BaseResponse other = (BaseResponse) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
@@ -171,10 +151,9 @@ public class BaseEntity<T> implements Serializable {
             return false;
         return true;
     }
-
     @Override
     public String toString() {
-        return "BaseEntity [id=" + id + ", remark=" + remark + ", enabled=" + enabled + ", createdUserId="
+        return "BaseResponse [id=" + id + ", remark=" + remark + ", enabled=" + enabled + ", createdUserId="
                 + createdUserId + ", createdTime=" + createdTime + ", updatedUserId=" + updatedUserId + ", updatedTime="
                 + updatedTime + ", deletedUserId=" + deletedUserId + ", deletedTime=" + deletedTime + "]";
     }

@@ -1,4 +1,4 @@
-package com.jinelei.iotgenius.common.exception;
+package com.jinelei.numbfish.common.exception;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
