@@ -1,9 +1,9 @@
-package com.jinelei.numbfish.common.utils;
+package com.jinelei.numbfish.common.helper;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-public class ThrowableStackTraceUtils {
+public class ThrowableStackTraceHelper {
 
     /**
      * 将 Throwable 的栈信息转换为字符串
