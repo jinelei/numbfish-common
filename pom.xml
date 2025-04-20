@@ -44,7 +44,7 @@
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
         <springfox-swagger-ui.version>2.9.2</springfox-swagger-ui.version>
         <knife4j-openapi3-jakarta.version>4.5.0</knife4j-openapi3-jakarta.version>
-        <mybatis-plus-core.version>3.5.10</mybatis-plus-core.version>
+        <mybatis-plus.version>3.5.10</mybatis-plus.version>
         <spring.version>6.2.3</spring.version>
     </properties>
 
@@ -64,7 +64,12 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-core</artifactId>
-            <version>${mybatis-plus-core.version}</version>
+            <version>${mybatis-plus.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-annotation</artifactId>
+            <version>${mybatis-plus.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
