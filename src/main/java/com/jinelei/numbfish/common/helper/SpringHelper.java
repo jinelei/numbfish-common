@@ -3,17 +3,27 @@ package com.jinelei.numbfish.common.helper;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.core.env.AbstractEnvironment;
+import org.springframework.core.env.Environment;
+import org.springframework.core.env.MutablePropertySources;
+import org.springframework.core.env.PropertySource;
 import org.springframework.stereotype.Component;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 @SuppressWarnings("unused")
 @Component
 public class SpringHelper implements ApplicationContextAware {
     private static ApplicationContext applicationContext;
+    private static Environment environment;
 
     @Override
     @SuppressWarnings("all")
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         SpringHelper.applicationContext = applicationContext;
+        SpringHelper.environment = applicationContext.getEnvironment();
     }
 
     /**
@@ -102,4 +112,26 @@ public class SpringHelper implements ApplicationContextAware {
         }
         return false;
     }
+
+    public static Map<String, Object> getProperties() {
+        final Map<String, Object> properties = new HashMap<>();
+        if (environment instanceof AbstractEnvironment e) {
+            final MutablePropertySources propertySources = e.getPropertySources();
+            propertySources.stream()
+                    .filter(p -> p.getName().startsWith("Config resource"))
+                    .map(PropertySource::getSource)
+                    .filter(p -> Map.class.isAssignableFrom(p.getClass()))
+                    .map(p -> (Map<String, Object>) p)
+                    .map(Map::keySet)
+                    .flatMap(Collection::stream)
+                    .forEach(n -> properties.put(n, e.getProperty(n)));
+        }
+        return properties;
+    }
+
+    public static Object getProperty(String name) {
+        final Map<String, Object> properties = getProperties();
+        return properties.get(name);
+    }
+
 }
