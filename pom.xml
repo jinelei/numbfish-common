@@ -6,7 +6,7 @@
 
     <groupId>com.jinelei.numbfish</groupId>
     <artifactId>common</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <description>numbfish common module</description>
     <url>https://github.com/jinelei/numbfish-common</url>
 
