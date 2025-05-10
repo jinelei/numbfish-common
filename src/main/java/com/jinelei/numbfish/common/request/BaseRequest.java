@@ -15,11 +15,11 @@ public class BaseRequest<T> implements Serializable {
     @Schema(description = "是否启用")
     protected Boolean enabled;
     @Schema(description = "创建人")
-    protected String createdUserId;
+    protected Long createdUserId;
     @Schema(description = "创建时间")
     protected LocalDateTime createdTime;
     @Schema(description = "更新人")
-    protected String updatedUserId;
+    protected Long updatedUserId;
     @Schema(description = "更新时间")
     protected LocalDateTime updatedTime;
     @Schema(description = "删除人")
@@ -43,7 +43,7 @@ public class BaseRequest<T> implements Serializable {
         this.remark = remark;
     }
 
-    public String getCreatedUserId() {
+    public Long getCreatedUserId() {
         return createdUserId;
     }
 
@@ -55,7 +55,7 @@ public class BaseRequest<T> implements Serializable {
         this.enabled = enabled;
     }
 
-    public void setCreatedUserId(String createdUserId) {
+    public void setCreatedUserId(Long createdUserId) {
         this.createdUserId = createdUserId;
     }
 
@@ -67,11 +67,11 @@ public class BaseRequest<T> implements Serializable {
         this.createdTime = createdTime;
     }
 
-    public String getUpdatedUserId() {
+    public Long getUpdatedUserId() {
         return updatedUserId;
     }
 
-    public void setUpdatedUserId(String updatedUserId) {
+    public void setUpdatedUserId(Long updatedUserId) {
         this.updatedUserId = updatedUserId;
     }
 
