@@ -1,6 +1,7 @@
 package com.jinelei.numbfish.common.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 
@@ -8,10 +9,10 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.time.LocalDateTime;
 
-@SuppressWarnings({ "rawtypes", "unused" })
+@SuppressWarnings({"rawtypes", "unused"})
 @Schema(description = "基础实体对象")
 public class BaseEntity<T> implements BaseEntityIntf<T> {
-    @TableId
+    @TableId(type = IdType.ASSIGN_ID)
     @Schema(description = "id")
     protected T id;
     @TableField(fill = FieldFill.INSERT)
